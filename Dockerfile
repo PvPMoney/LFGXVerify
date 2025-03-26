@@ -1,5 +1,8 @@
-# Use an official lightweight Python image.
-FROM python:3.9-slim
+# Use the official Python slim image
+FROM python:3.11-slim
+
+# Prevent Python from buffering stdout and stderr
+ENV PYTHONUNBUFFERED=1
 
 # Set the working directory in the container.
 WORKDIR /app
@@ -15,7 +18,7 @@ COPY . .
 
 # Use an environment variable for your bot token.
 # When running the container, you can pass this with `-e DISCORD_BOT_TOKEN=your_token`
-ENV DISCORD_BOT_TOKEN=""
+# ENV DISCORD_BOT_TOKEN=""
 
 # Set the command to run your bot.
-CMD ["python", "your_bot_file.py"]
+CMD ["python", "bot.py"]
